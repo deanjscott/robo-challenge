@@ -1,0 +1,66 @@
+PLACE 0,0,NORTH
+MOVE
+MOVE
+RIGHT
+MOVE
+RESULT:Robot is currently at Coordinate X(1) and Y(2) and direction EAST
+MOVE
+MOVE
+REPORT
+RESULT:Robot is currently at null and direction null
+MOVE
+MOVE
+PLACE 2,2,WEST
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+RIGHT
+RESULT:Robot is currently at Coordinate X(0) and Y(2) and direction NORTH
+PLACE 0,0,EAST
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+LEFT
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+RESULT:Robot is currently at Coordinate X(4) and Y(4) and direction NORTH
+PLACE 0,0,NORTH
+MOVE
+RESULT:Robot is currently at Coordinate X(0) and Y(1) and direction NORTH
+PLACE 0,0,NORTH
+LEFT
+RESULT:Robot is currently at Coordinate X(0) and Y(0) and direction WEST
+PLACE 1,2,EAST
+MOVE
+MOVE
+LEFT
+MOVE
+RESULT:Robot is currently at Coordinate X(3) and Y(3) and direction NORTH
+PLACE 5,5,EAST
+MOVE
+MOVE
+LEFT
+MOVE
+RESULT:Robot is currently at null and direction null

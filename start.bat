@@ -1,0 +1,1 @@
+java -jar build/libs/robo-challenge-1.0-SNAPSHOT.jar
