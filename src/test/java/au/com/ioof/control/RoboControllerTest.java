@@ -37,7 +37,7 @@ public class RoboControllerTest {
 
     @Before
     public void setUp() throws Exception {
-        controller = new RoboController(robot,table,outputStream);
+        controller = new RoboController(robot, table, outputStream);
     }
 
     @After
@@ -49,10 +49,10 @@ public class RoboControllerTest {
     public void testMoveRobotForward() throws Exception {
         doReturn(true).when(robot).isPlaced();
         doReturn(Direction.NORTH).when(robot).getDirection();
-        doReturn(new Coordinate(0,0)).when(robot).getCurrentCoordinate();
+        doReturn(new Coordinate(0, 0)).when(robot).getCurrentCoordinate();
         doReturn(true).when(table).validCoordinate(any(Coordinate.class));
         controller.moveRobot(MovementType.MOVE);
-        verify(robot).setCurrentCoordinate(refEq(new Coordinate(0,1)));
+        verify(robot).setCurrentCoordinate(refEq(new Coordinate(0, 1)));
     }
 
     @Test
@@ -65,18 +65,18 @@ public class RoboControllerTest {
 
     @Test
     public void testTurnRobotLEFT() throws Exception {
-        testTurnRobot(Direction.NORTH,Direction.WEST,MovementType.LEFT);
-        testTurnRobot(Direction.WEST,Direction.SOUTH,MovementType.LEFT);
-        testTurnRobot(Direction.SOUTH,Direction.EAST,MovementType.LEFT);
-        testTurnRobot(Direction.EAST,Direction.NORTH,MovementType.LEFT);
+        testTurnRobot(Direction.NORTH, Direction.WEST, MovementType.LEFT);
+        testTurnRobot(Direction.WEST, Direction.SOUTH, MovementType.LEFT);
+        testTurnRobot(Direction.SOUTH, Direction.EAST, MovementType.LEFT);
+        testTurnRobot(Direction.EAST, Direction.NORTH, MovementType.LEFT);
     }
 
     @Test
     public void testTurnRobotRIGHT() throws Exception {
-        testTurnRobot(Direction.NORTH,Direction.EAST,MovementType.RIGHT);
-        testTurnRobot(Direction.EAST,Direction.SOUTH,MovementType.RIGHT);
-        testTurnRobot(Direction.SOUTH,Direction.WEST,MovementType.RIGHT);
-        testTurnRobot(Direction.WEST,Direction.NORTH,MovementType.RIGHT);
+        testTurnRobot(Direction.NORTH, Direction.EAST, MovementType.RIGHT);
+        testTurnRobot(Direction.EAST, Direction.SOUTH, MovementType.RIGHT);
+        testTurnRobot(Direction.SOUTH, Direction.WEST, MovementType.RIGHT);
+        testTurnRobot(Direction.WEST, Direction.NORTH, MovementType.RIGHT);
     }
 
     private void testTurnRobot(Direction currentDirection, Direction expectedDirection, MovementType movementType) throws Exception {
@@ -88,7 +88,7 @@ public class RoboControllerTest {
 
     @Test
     public void testPlaceRobotValidSpot() throws Exception {
-        Coordinate coordinate = new Coordinate(1,2);
+        Coordinate coordinate = new Coordinate(1, 2);
         Direction direction = Direction.NORTH;
         doReturn(true).when(table).validCoordinate(coordinate);
         controller.placeRobot(coordinate, direction);
@@ -98,7 +98,7 @@ public class RoboControllerTest {
 
     @Test(expected = InvalidUserCommandException.class)
     public void testPlaceRobotInvalidSpot() throws Exception {
-        Coordinate coordinate = new Coordinate(1,2);
+        Coordinate coordinate = new Coordinate(1, 2);
         Direction direction = Direction.NORTH;
         doReturn(false).when(table).validCoordinate(coordinate);
         controller.placeRobot(coordinate, direction);
@@ -108,7 +108,7 @@ public class RoboControllerTest {
     public void testPrintReportPlaced() throws Exception {
         doReturn(true).when(robot).isPlaced();
         doReturn(Direction.EAST).when(robot).getDirection();
-        doReturn(new Coordinate(1,2)).when(robot).getCurrentCoordinate();
+        doReturn(new Coordinate(1, 2)).when(robot).getCurrentCoordinate();
         controller.printReport();
         verify(outputStream).println(any(String.class));
     }
@@ -125,24 +125,24 @@ public class RoboControllerTest {
         doReturn(true).when(table).validCoordinate(any(Coordinate.class));
         controller.processUserInstruction("PLACE 1,1,NORTH");
         verify(robot).setDirection(Direction.NORTH);
-        verify(robot).setCurrentCoordinate(refEq(new Coordinate(1,1)));
+        verify(robot).setCurrentCoordinate(refEq(new Coordinate(1, 1)));
     }
 
     @Test
     public void testProcessUserInstructionMOVE() throws Exception {
         doReturn(true).when(robot).isPlaced();
         doReturn(Direction.NORTH).when(robot).getDirection();
-        doReturn(new Coordinate(0,0)).when(robot).getCurrentCoordinate();
+        doReturn(new Coordinate(0, 0)).when(robot).getCurrentCoordinate();
         doReturn(true).when(table).validCoordinate(any(Coordinate.class));
         controller.processUserInstruction("MOVE");
-        verify(robot).setCurrentCoordinate(refEq(new Coordinate(0,1)));
+        verify(robot).setCurrentCoordinate(refEq(new Coordinate(0, 1)));
     }
 
     @Test
     public void testProcessUserInstructionLEFT() throws Exception {
         doReturn(true).when(robot).isPlaced();
         doReturn(Direction.NORTH).when(robot).getDirection();
-        doReturn(new Coordinate(0,0)).when(robot).getCurrentCoordinate();
+        doReturn(new Coordinate(0, 0)).when(robot).getCurrentCoordinate();
         doReturn(true).when(table).validCoordinate(any(Coordinate.class));
         controller.processUserInstruction("LEFT");
         verify(robot).setDirection(Direction.WEST);
@@ -152,7 +152,7 @@ public class RoboControllerTest {
     public void testProcessUserInstructionRIGHT() throws Exception {
         doReturn(true).when(robot).isPlaced();
         doReturn(Direction.NORTH).when(robot).getDirection();
-        doReturn(new Coordinate(0,0)).when(robot).getCurrentCoordinate();
+        doReturn(new Coordinate(0, 0)).when(robot).getCurrentCoordinate();
         doReturn(true).when(table).validCoordinate(any(Coordinate.class));
         controller.processUserInstruction("RIGHT");
         verify(robot).setDirection(Direction.EAST);
@@ -162,29 +162,29 @@ public class RoboControllerTest {
     public void testProcessUserInstructionREPORT() throws Exception {
         doReturn(true).when(robot).isPlaced();
         doReturn(Direction.EAST).when(robot).getDirection();
-        doReturn(new Coordinate(1,2)).when(robot).getCurrentCoordinate();
+        doReturn(new Coordinate(1, 2)).when(robot).getCurrentCoordinate();
         controller.processUserInstruction("REPORT");
         verify(outputStream).println(any(String.class));
     }
 
 
     @Test
-    public void runActualSimulationMovementTests(){
+    public void runActualSimulationMovementTests() {
         Robot robot = new Robot();
-        controller = new RoboController(robot,new Table(5,5),outputStream);
+        controller = new RoboController(robot, new Table(5, 5), outputStream);
         Scanner scanner = new Scanner(getClass().getClassLoader().getResourceAsStream("Instructions.txt"));
         scanner = scanner.useDelimiter("\\n");
         String instruction;
-        while(true){
+        while (true) {
             try {
                 instruction = scanner.next().trim();
-                try{
+                try {
                     controller.processUserInstruction(instruction);
-                } catch(InvalidUserCommandException e){
+                } catch (InvalidUserCommandException e) {
                     //ignore as results must match after run
                 }
 
-                if(instruction != null && instruction.startsWith("RESULT:")){
+                if (instruction.startsWith("RESULT:")) {
                     //check result matches
                     String expectedResult = instruction.split(":")[1].trim();
                     assertEquals(expectedResult, robot.toString());
@@ -192,9 +192,9 @@ public class RoboControllerTest {
                     robot.setDirection(null);
                     robot.setCurrentCoordinate(null);
                 }
-            } catch(NoSuchElementException e){
+            } catch (NoSuchElementException e) {
                 break;
-            } catch(Exception e){
+            } catch (Exception e) {
                 fail("Error occured during test, MSG:" + e.getMessage());
             }
         }

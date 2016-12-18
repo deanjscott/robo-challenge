@@ -27,24 +27,21 @@ public class Main {
                 "  REPORT\n" +
                 "  EXIT\n");
 
-        Scanner scanner = new Scanner(System.in);
+        try (Scanner scanner = new Scanner(System.in)) {
+            while (true) {
+                System.out.println("Please enter command and then press enter : ");
+                String commandInput = scanner.nextLine();
+                if ("EXIT".equalsIgnoreCase(commandInput)) {
+                    System.out.println("Shutting Down");
+                    break;
+                }
 
-        while (true) {
-
-            System.out.println("Please enter command and then press enter : ");
-            String commandInput = scanner.nextLine();
-            if ("EXIT".equalsIgnoreCase(commandInput)) {
-                System.out.println("Shutting Down");
-                break;
-            }
-
-            try {
-                controller.processUserInstruction(commandInput);
-            } catch (InvalidUserCommandException e) {
-                System.out.println("Invalid user command issued: " + e.getMessage());
+                try {
+                    controller.processUserInstruction(commandInput);
+                } catch (InvalidUserCommandException e) {
+                    System.out.println("Invalid user command issued: " + e.getMessage());
+                }
             }
         }
-
-        scanner.close();
     }
 }

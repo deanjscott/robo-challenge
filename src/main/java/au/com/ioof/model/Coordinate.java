@@ -4,7 +4,7 @@ package au.com.ioof.model;
  * A coordinate that a robot can occupy
  */
 public class Coordinate {
-    private int x,y;
+    private int x, y;
 
     public Coordinate(int x, int y) {
         this.y = y;
@@ -19,11 +19,12 @@ public class Coordinate {
     public int getX() {
         return x;
     }
+
     public int getY() {
         return y;
     }
 
-    public String toString(){
-        return "Coordinate X(" + x + ") and Y(" + y +")";
+    public String toString() {
+        return "Coordinate X(" + x + ") and Y(" + y + ")";
     }
 }

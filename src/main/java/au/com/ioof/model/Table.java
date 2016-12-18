@@ -15,8 +15,9 @@ public class Table {
 
     /**
      * Will return true if the given coordinate is a valid table coordinate
-     * @param coordinate
-     * @return
+     *
+     * @param coordinate the coordinate to check
+     * @return true if given coordinate is a valid table coordinate
      */
     public boolean validCoordinate(Coordinate coordinate) {
         return coordinate != null

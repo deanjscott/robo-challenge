@@ -12,7 +12,7 @@ public class Robot {
         this.direction = direction;
     }
 
-    public Robot(){
+    public Robot() {
 
     }
 
@@ -37,16 +37,14 @@ public class Robot {
 
     /**
      * Returns true if the robot has been placed, i.e the coordinates and direction have been set
-     * @return
+     *
+     * @return true if place, otherwise false
      */
-    public boolean isPlaced(){
-        if(currentCoordinate == null || direction == null){
-            return false;
-        }
-        return true;
+    public boolean isPlaced() {
+        return !(currentCoordinate == null || direction == null);
     }
 
-    public String toString(){
+    public String toString() {
         return "Robot is currently at " + getCurrentCoordinate() + " and direction " + getDirection();
     }
 }

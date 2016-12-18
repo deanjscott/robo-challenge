@@ -4,9 +4,9 @@ package au.com.ioof.types;
  * Allowable directions that a robot can face
  */
 public enum Direction {
-    NORTH(1,0),SOUTH(-1,0),EAST(0,1),WEST(0,-1);
+    NORTH(1, 0), SOUTH(-1, 0), EAST(0, 1), WEST(0, -1);
 
-    static{
+    static {
         //set up all the direction references after the enums have been created
         NORTH.leftDirection = WEST;
         NORTH.rightDirection = EAST;
@@ -45,10 +45,10 @@ public enum Direction {
     }
 
 
-    public static Direction getDirection(String direction){
-        try{
+    public static Direction getDirection(String direction) {
+        try {
             return Direction.valueOf(direction.toUpperCase());
-        } catch(IllegalArgumentException | NullPointerException e){
+        } catch (IllegalArgumentException | NullPointerException e) {
             return null;
         }
     }

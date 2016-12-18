@@ -4,9 +4,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Dean on 14/12/2016.
- */
 public class MovementTypeTest {
 
     @Test
