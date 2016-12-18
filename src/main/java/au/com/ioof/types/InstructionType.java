@@ -8,8 +8,8 @@ public enum InstructionType {
 
     public static InstructionType getInstruction(String instruction){
         try{
-            return InstructionType.valueOf(instruction);
-        } catch(IllegalArgumentException e){
+            return InstructionType.valueOf(instruction.toUpperCase());
+        } catch(IllegalArgumentException | NullPointerException e){
             return null;
         }
     }

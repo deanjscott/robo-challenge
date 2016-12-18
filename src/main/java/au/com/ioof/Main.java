@@ -33,7 +33,7 @@ public class Main {
 
             System.out.println("Please enter command and then press enter : ");
             String commandInput = scanner.nextLine();
-            if ("EXIT".equals(commandInput)) {
+            if ("EXIT".equalsIgnoreCase(commandInput)) {
                 System.out.println("Shutting Down");
                 break;
             }

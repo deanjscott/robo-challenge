@@ -8,8 +8,8 @@ public enum MovementType {
 
     public static MovementType getMovementType(String movement){
         try{
-            return MovementType.valueOf(movement);
-        } catch(Exception e){
+            return MovementType.valueOf(movement.toUpperCase());
+        } catch(IllegalArgumentException | NullPointerException e){
             return null;
         }
     }

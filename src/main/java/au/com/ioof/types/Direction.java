@@ -47,8 +47,8 @@ public enum Direction {
 
     public static Direction getDirection(String direction){
         try{
-            return Direction.valueOf(direction);
-        } catch(IllegalArgumentException e){
+            return Direction.valueOf(direction.toUpperCase());
+        } catch(IllegalArgumentException | NullPointerException e){
             return null;
         }
     }
